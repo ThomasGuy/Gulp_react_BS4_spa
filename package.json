@@ -1,0 +1,32 @@
+{
+  "name": "hello-world",
+  "version": "1.0.0",
+  "description": "hello world",
+  "main": "index.js",
+  "scripts": {
+    "start": "gulp",
+    "clean": "rm -rf node_modules"
+  },
+  "author": "tom",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "^4.3.1",
+    "jquery": "^3.4.1",
+    "tether": "^1.4.7"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.6.4",
+    "@babel/preset-env": "^7.6.3",
+    "@babel/register": "^7.6.2",
+    "autoprefixer": "^9.7.1",
+    "browser-sync": "^2.26.7",
+    "cssnano": "^4.1.10",
+    "gulp": "^4.0.2",
+    "gulp-babel": "^8.0.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-postcss": "^8.0.0",
+    "gulp-sass": "^4.0.2",
+    "gulp-sourcemaps": "^2.6.5",
+    "gulp-uglify": "^3.0.2"
+  }
+}
