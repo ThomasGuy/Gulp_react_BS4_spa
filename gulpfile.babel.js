@@ -6,28 +6,61 @@ import concat from "gulp-concat";
 import uglify from "gulp-uglify";
 import postcss from "gulp-postcss";
 import autoprefixer from "autoprefixer";
+import del from "del";
+import imagemin from "gulp-imagemin";
 import cssnano from "cssnano";
 import browserSync from "browser-sync";
 
-// const { reload } = browserSync;
+const server = browserSync.create();
+const clean = () => del(["dist"]);
+
+function reload(done) {
+  server.reload();
+  done();
+}
+
+function serve(done) {
+  server.init({
+    server: {
+      baseDir: "./",
+    },
+  });
+  done();
+}
+
 const path = {
   scss: {
     src: "src/static/styless/*.scss",
-    dest: "src/build/css",
-    vendor: "src/build/vendor/css",
+    dest: "dist/css",
+    vendor: "dist/vendor/css",
   },
   // css: "src/static/styles/css",
   js: {
     src: "src/static/js/*.js",
-    dest: "src/build/js",
-    vendor: "src/build/vendor/js",
+    dest: "dist/js",
+    vendor: "dist/vendor/js",
   },
-  html: "src/*.html",
+  html: "./*.html",
+  img: {
+    src: "src/static/img/*",
+    dest: "dist/img",
+  },
+  fonts: {
+    src: "src/static/fonts/*",
+    dest: "dist/fonts",
+    vendor: {
+      src: "node_modules/font-awesome/fonts/*",
+      dest: "dist/vendor/fonts",
+    },
+  },
 };
 
 // move vendor (bootsrap) css
 function moveScss() {
-  return src("node_modules/bootstrap/scss/bootstrap.scss")
+  return src([
+    "node_modules/bootstrap/scss/bootstrap.scss",
+    "node_modules/font-awesome/scss/font-awesome.scss",
+  ])
     .pipe(sass())
     .pipe(postcss([autoprefixer(), cssnano()])) // PostCSS plugins
     .pipe(dest(path.scss.vendor));
@@ -40,8 +73,8 @@ function sassTask() {
     .pipe(sass().on("error", sass.logError))
     .pipe(postcss([autoprefixer(), cssnano()])) // PostCSS plugins
     .pipe(sourcemaps.write(".")) // write sourcemaps file in current directory
-    .pipe(dest(path.scss.dest))
-    .pipe(browserSync.reload({ stream: true }));
+    .pipe(dest(path.scss.dest));
+  // .pipe(browserSync.reload({ stream: true }));
 }
 
 // move vendor js files
@@ -50,6 +83,7 @@ function moveJs() {
     "node_modules/bootstrap/dist/js/bootstrap.min.js",
     "node_modules/tether/dist/js/tether.min.js",
     "node_modules/jquery/dist/jquery.min.js",
+    "node_modules/popper.js/dist/popper.min.js",
   ]).pipe(dest(path.js.vendor));
 }
 
@@ -62,14 +96,23 @@ function jsTask() {
     .pipe(babel())
     .pipe(concat("main.js"))
     .pipe(uglify())
-    .pipe(dest(path.js.dest))
-    .pipe(browserSync.reload({ stream: true }));
+    .pipe(dest(path.js.dest));
+  // .pipe(browserSync.reload({ stream: true }));
 }
 
-function htmlTask() {
-  return src(path.html).pipe(browserSync.reload({ stream: true }));
+function moveImg() {
+  return src(path.img.src)
+    .pipe(
+      imagemin({
+        verbose: true,
+      }),
+    )
+    .pipe(dest(path.img.dest));
 }
 
+function mvFont_awesome() {
+  return src([path.fonts.vendor.src]).pipe(dest(path.fonts.vendor.dest));
+}
 // Cachebust
 // let cbString = new Date().getTime();
 // function cacheBustTask() {
@@ -78,11 +121,16 @@ function htmlTask() {
 //     .pipe(dest("."));
 // }
 
-function watchTask() {
-  browserSync.init({
-    server: "./src",
-  });
-  watch([path.scss.src, path.js.src, path.html], series(parallel(sassTask, jsTask, htmlTask)));
-}
+const watchall = () =>
+  watch([path.scss.src, path.js.src, path.html], series(parallel(sassTask, jsTask), reload));
 
-exports.default = series(moveJs, moveScss, parallel(sassTask, jsTask), watchTask);
+exports.default = series(
+  clean,
+  moveJs,
+  moveScss,
+  mvFont_awesome,
+  moveImg,
+  parallel(sassTask, jsTask),
+  serve,
+  watchall,
+);
