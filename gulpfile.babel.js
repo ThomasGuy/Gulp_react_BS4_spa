@@ -1,5 +1,5 @@
 import { src, dest, watch, series, parallel } from "gulp";
-import babel from 'gulp-babel';
+import babel from "gulp-babel";
 import sourcemaps from "gulp-sourcemaps";
 import sass from "gulp-sass";
 import concat from "gulp-concat";
@@ -25,7 +25,7 @@ const path = {
   html: "src/*.html",
 };
 
-// move bootsrap css
+// move vendor (bootsrap) css
 function moveScss() {
   return src("node_modules/bootstrap/scss/bootstrap.scss")
     .pipe(sass())
@@ -38,12 +38,13 @@ function sassTask() {
   return src(path.scss.src)
     .pipe(sourcemaps.init()) // initialize sourcemaps first
     .pipe(sass().on("error", sass.logError))
+    .pipe(postcss([autoprefixer(), cssnano()])) // PostCSS plugins
     .pipe(sourcemaps.write(".")) // write sourcemaps file in current directory
     .pipe(dest(path.scss.dest))
     .pipe(browserSync.reload({ stream: true }));
 }
 
-// move the js files
+// move vendor js files
 function moveJs() {
   return src([
     "node_modules/bootstrap/dist/js/bootstrap.min.js",
@@ -66,8 +67,7 @@ function jsTask() {
 }
 
 function htmlTask() {
-  return src(path.html)
-    .pipe(browserSync.reload({ stream: true }));
+  return src(path.html).pipe(browserSync.reload({ stream: true }));
 }
 
 // Cachebust
