@@ -58,36 +58,35 @@ section {
   padding: 40px040px0;
 }
 section#feature img.big-logo {
-    width: 70%;
-  }
+  width: 70%;
+}
 section#middle img.demo {
   margin-top: 2rem;
-    width: 20%;
-  }
-
-section#feature{
-  background:$dark-cyan;
-  color:white;
-  padding:40px;
-  overflow:auto;
+  width: 20%;
 }
 
-section#feature ul li{
-  font-size:22px;
-  list-style:none;
-  line-height:2.0em;
+section#feature {
+  background: $dark-cyan;
+  color: white;
+  padding: 40px;
+  overflow: auto;
+}
+
+section#feature ul li {
+  font-size: 22px;
+  list-style: none;
+  line-height: 2em;
 }
 
 section#feature ul {
-  padding:0;
-  margin:0;
+  padding: 0;
+  margin: 0;
 }
 
 section#middle {
   margin: 2rem 0;
 }
 footer {
-
   background-color: rgb(138, 125, 125);
 }
 footer ul {
@@ -100,6 +99,5 @@ footer ul li {
   list-style: none;
   a {
     color: $very-dark-blue;
-
   }
 }
