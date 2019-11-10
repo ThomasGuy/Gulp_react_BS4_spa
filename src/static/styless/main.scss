@@ -17,8 +17,8 @@ body {
   }
   .active {
     .nav-link {
-      color: $very-dark-gray;
-      background: $very-light-gray;
+      color: $very-light-gray;
+      background: $very-dark-gray;
     }
   }
 }
@@ -35,7 +35,7 @@ body {
   margin-bottom: 20px;
 }
 .jumbotron {
-  background: $very-dark-blue;
+  background: rgb(3, 86, 124);
   color: white;
   height: 31rem;
   overflow: hidden;
@@ -55,7 +55,7 @@ body {
 }
 
 section {
-  padding: 40px040px0;
+  padding: 40px 0;
 }
 section#feature img.big-logo {
   width: 70%;
@@ -158,4 +158,8 @@ footer ul li {
     text-align: center;
     padding-top: 20px;
   }
+}
+
+.logo-img img {
+  height: 100px;
 }
