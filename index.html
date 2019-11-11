@@ -12,6 +12,16 @@
 
     <title>Hello, world!</title>
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Poiret+One"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Lato& subset=latin,latin-ext"
+      rel="stylesheet"
+      type="text/css"
+    />
     <link rel="stylesheet" href="dist/vendor/css/font-awesome.css" />
 
     <!-- Bootstrap CSS -->
@@ -19,53 +29,103 @@
     <link rel="stylesheet" href="dist/css/main.css" />
   </head>
   <body>
-    <nav class="navbar navbar-expand-md navbar-light bg-dark fixed-top">
-      <div class="container">
-        <a class="navbar-brand logo-img" href="index.html">
-          <img src="dist/img/TWG_logo2.png" alt="TWG-logo" />
-        </a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarsEx09"
-          aria-controls="#navbarsEx09"
-          aria-expanded="false"
-          aria-label="Toogle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarsEx09">
-          <ul class="nav navbar-nav mr-auto">
-            <li class="active"><a href="index.html" class="nav-link">Home</a></li>
-            <li><a href="about.html" class="nav-link">About</a></li>
-            <li><a href="contact.html" class="nav-link">Contact</a></li>
-          </ul>
-        </div>
+    <!-- Nav -->
+    <nav class="navbar navbar-expand-md navbar-myphoto">
+      <a class="navbar-brand" href="#">
+        <img src="dist/img/TWG_logo2.png" alt="twg-logo" class="my-logo" />
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#burger">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="burger">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#welcome"> Welcome</a>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="#services"> Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="#gallery"> Gallery</a></li>
+          <li class="nav-item"><a class="nav-link" href="#about"> About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact"> Contact Us</a></li>
+        </ul>
+        <ul class="navbar-nav pull-right">
+          <li class="nav-item"><a href="#" class="nav-link">Tom</a></li>
+          <li class="nav-item dropdown ">
+            <a
+              href="#"
+              class="nav-link dropdown-toggle"
+              data-toggle="dropdown"
+              role="button"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              Profile <span class="caret"></span>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right">
+              <a class="dropdown-item" href="#" data-toggle="modal" data-target="#profile-modal"
+                >Profile</a
+              >
+              <a class="dropdown-item" href="#" data-toggle="modal" data-target="#settings-modal"
+                >Settings</a
+              >
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">Logout</a>
+            </div>
+          </li>
+        </ul>
       </div>
     </nav>
-
-    <div class="jumbotron">
-      <div class="container">
-        <div class="row"></div>
+    <div class="modal" id="profile-modal" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <h4 class="modal-title" id="profile-modal-label">Profile</h4>
+          </div>
+          <div class="modal-body">Here is your Profile</div>
+          <div class="modal-footer">Footer</div>
+        </div>
+      </div>
+    </div>
+    <div class="modal" id="settings-modal" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <h4 class="modal-title" id="settings-modal-label">Settings</h4>
+          </div>
+          <div class="modal-body">Settings</div>
+        </div>
       </div>
     </div>
 
-    <section id="feature">
+    <!-- welcome -->
+    <div class="container-fluid mysite-section bg-site-dark">
       <div class="container">
-        <div class="row"></div>
+        <div class="jumbotron">
+          <div class="row"></div>
+        </div>
       </div>
-    </section>
+    </div>
 
+    <!-- middle -->
     <section id="middle">
-      <div class="container">
-        <div class="row"></div>
+      <div class="container-fluid mysite-section bg-site-lite">
+        <div class="row">
+          <h3>middle</h3>
+        </div>
       </div>
     </section>
 
+    <!-- teature -->
     <section id="feature">
-      <div class="container">
-        <div class="row"></div>
+      <div class="container-fluid mysite-section bg-site-dark">
+        <div class="row">
+          <h3>feature</h3>
+        </div>
       </div>
     </section>
 

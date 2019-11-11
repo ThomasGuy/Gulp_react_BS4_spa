@@ -3,14 +3,32 @@ $very-light-gray: #e7e7e7;
 $dark-cyan: #1caa98;
 $very-dark-blue: #1b222a;
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.nav,
+.navbar {
+  font-family: "Poiret One", cursive;
+}
 body {
-  padding-top: 50px;
+  font-family: "Lato", cursive;
 }
 
+.logo-img img {
+  height: 100px;
+}
+.bg-mysite-lite {
+  background-clip: $very-light-gray;
+}
+.bg-mysite-dark {
+  background-clip: $very-dark-gray;
+}
 .navbar {
   padding: 0;
 }
-
 .nav.navbar-nav {
   .nav-link {
     padding: 0.85rem 1rem;
@@ -27,13 +45,6 @@ body {
   padding: 0.65rem;
 }
 
-.em-text {
-  color: $dark-cyan !important;
-}
-
-.col-lg-4 {
-  margin-bottom: 20px;
-}
 .jumbotron {
   background: rgb(3, 86, 124);
   color: white;
@@ -100,66 +111,4 @@ footer ul li {
   a {
     color: $very-dark-blue;
   }
-}
-
-/* media queries */
-@media (min-width: 1200px) {
-  .jumbotron img.showcase-img {
-    width: 61%;
-    margin: 5px 0 0 40px;
-  }
-}
-
-@media (min-width: 991px) {
-  .show-img {
-    display: none;
-  }
-}
-
-@media (min-width: 768px) and (max-width: 990px) {
-  .jumbotron img.app-btn {
-    width: 30%;
-  }
-  .jumbotron {
-    height: 400px !important;
-    background-size: 100% 100%;
-  }
-  .jumbotron h1 {
-    margin-top: 10px;
-  }
-}
-
-@media (max-width: 768px) {
-  .jumbotron {
-    height: 350px !important;
-    background-size: 100% 100%;
-  }
-  .jumbotron h1 {
-    margin-top: 10px;
-  }
-}
-
-@media (max-width: 500px) {
-  .jumbotron {
-    height: 450px !important;
-    background-image: none;
-    text-align: center;
-  }
-  .jumbotron img.app-btn {
-    width: 60%;
-    margin: 0 auto 30px auto;
-    display: block;
-  }
-  section#feature ul li {
-    font-size: 19px !important;
-  }
-  footer p {
-    float: none;
-    text-align: center;
-    padding-top: 20px;
-  }
-}
-
-.logo-img img {
-  height: 100px;
 }
