@@ -30,50 +30,58 @@
   </head>
   <body>
     <!-- Nav -->
-    <nav class="navbar navbar-expand-md navbar-myphoto">
-      <a class="navbar-brand" href="#">
-        <img src="dist/img/TWG_logo2.png" alt="twg-logo" class="my-logo" />
-      </a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#burger">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="burger">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="#welcome"> Welcome</a>
-          </li>
-          <li class="nav-item"><a class="nav-link" href="#services"> Services</a></li>
-          <li class="nav-item"><a class="nav-link" href="#gallery"> Gallery</a></li>
-          <li class="nav-item"><a class="nav-link" href="#about"> About</a></li>
-          <li class="nav-item"><a class="nav-link" href="#contact"> Contact Us</a></li>
-        </ul>
-        <ul class="navbar-nav pull-right">
-          <li class="nav-item"><a href="#" class="nav-link">Tom</a></li>
-          <li class="nav-item dropdown ">
-            <a
-              href="#"
-              class="nav-link dropdown-toggle"
-              data-toggle="dropdown"
-              role="button"
-              aria-haspopup="true"
-              aria-expanded="false"
-            >
-              Profile <span class="caret"></span>
-            </a>
-            <div class="dropdown-menu dropdown-menu-right">
-              <a class="dropdown-item" href="#" data-toggle="modal" data-target="#profile-modal"
-                >Profile</a
-              >
-              <a class="dropdown-item" href="#" data-toggle="modal" data-target="#settings-modal"
-                >Settings</a
-              >
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#">Logout</a>
-            </div>
-          </li>
-        </ul>
+    <div class="container-fluid bg-mysite-dark">
+      <div class="container">
+        <nav class="navbar navbar-expand-md navbar-mysite my-logo">
+          <a class="navbar-brand" href="#">
+            <img src="dist/img/TWG_logo2.png" alt="twg-logo" />
+          </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#burger">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="burger">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="#welcome"> Welcome</a>
+              </li>
+              <li class="nav-item"><a class="nav-link" href="#services"> Services</a></li>
+              <li class="nav-item"><a class="nav-link" href="#gallery"> Gallery</a></li>
+              <li class="nav-item"><a class="nav-link" href="#about"> About</a></li>
+              <li class="nav-item"><a class="nav-link" href="#contact"> Contact Us</a></li>
+            </ul>
+            <ul class="navbar-nav pull-right">
+              <li class="nav-item"><a href="#" class="nav-link">Tom</a></li>
+              <li class="nav-item dropdown ">
+                <a
+                  href="#"
+                  class="nav-link dropdown-toggle"
+                  data-toggle="dropdown"
+                  role="button"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                >
+                  Profile <span class="caret"></span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right">
+                  <a class="dropdown-item" href="#" data-toggle="modal" data-target="#profile-modal"
+                    >Profile</a
+                  >
+                  <a
+                    class="dropdown-item"
+                    href="#"
+                    data-toggle="modal"
+                    data-target="#settings-modal"
+                    >Settings</a
+                  >
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="#">Logout</a>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </nav>
       </div>
-    </nav>
+    </div>
     <div class="modal" id="profile-modal" role="dialog">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -103,28 +111,56 @@
     </div>
 
     <!-- welcome -->
-    <div class="container-fluid mysite-section bg-site-dark">
+    <div class="container-fluid mysite-section bg-mysite-welcome" id="welcome">
       <div class="container">
         <div class="jumbotron">
-          <div class="row"></div>
+          <div class="row">
+            <h1>Welcome</h1>
+          </div>
         </div>
       </div>
     </div>
 
     <!-- middle -->
-    <section id="middle">
-      <div class="container-fluid mysite-section bg-site-lite">
-        <div class="row">
-          <h3>middle</h3>
+    <section id="services">
+      <div class="container-fluid mysite-section bg-mysite-lite">
+        <div class="container">
+          <div class="row">
+            <h3>Services</h3>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- teature -->
-    <section id="feature">
-      <div class="container-fluid mysite-section bg-site-dark">
-        <div class="row">
-          <h3>feature</h3>
+    <!-- feature -->
+    <section id="gallery">
+      <div class="container-fluid mysite-section bg-mysite-dark">
+        <div class="container">
+          <div class="row">
+            <h3>Gallery</h3>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about">
+      <div class="container-fluid mysite-section bg-mysite-lite">
+        <div class="container">
+          <div class="row">
+            <h3>About</h3>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- contact -->
+    <section id="contact">
+      <div class="container-fluid mysite-section bg-mysite-dark">
+        <div class="container">
+          <div class="row">
+            <h3>Contact</h3>
+          </div>
         </div>
       </div>
     </section>
@@ -132,7 +168,9 @@
     <!-- Footer -->
     <footer>
       <div class="container">
-        <div class="row"></div>
+        <div class="row">
+          Yes your feets to big...!
+        </div>
         <div class="row">
           <div class="col-lg-6 col-md-7 col-sm-12">
             <p>Copyright &copy;2019, ALL RIGHTS Reserved</p>
