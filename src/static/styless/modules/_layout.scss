@@ -1,0 +1,36 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.nav,
+.navbar {
+  font-family: "Poiret One", cursive;
+}
+body {
+  font-family: "Lato", cursive;
+}
+.myphoto-section {
+  min-height: 500px;
+}
+.bg-myphoto-dark {
+  background-color: $bg-dark;
+  color: white;
+}
+.bg-myphoto-light {
+  background-color: white;
+  color: $bg-dark;
+}
+
+// ----------  footer  -----------
+footer {
+  font-size: 0.7rem;
+  p {
+    display: inline;
+    margin-left: 0.8rem;
+  }
+  a {
+    color: inherit;
+  }
+}
