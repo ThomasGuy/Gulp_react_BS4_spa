@@ -1,8 +1,11 @@
 @charset "utf-8";
 
+@import "../../../node_modules/bootstrap/scss/bootstrap";
+@import "../../../node_modules/font-awesome/scss/font-awesome";
+
 @import "modules/variables";
 @import "modules/layout";
 @import "modules/nav";
 
 @import "modules/pages/welcome";
-@import "modules/pages/services";
+@import "modules/pages/gallery";

@@ -4,8 +4,9 @@
   "description": "hello world",
   "main": "index.js",
   "scripts": {
-    "start": "gulp",
-    "clean": "rm -rf node_modules dist/*"
+    "start": "cross-env NODE_ENV=development gulp",
+    "prod": "cross-env NODE_ENV=production gulp",
+    "clean": "rm -rf node_modules dist/* build/*"
   },
   "author": "tom",
   "license": "ISC",
@@ -14,24 +15,31 @@
     "font-awesome": "^4.7.0",
     "jquery": "^3.4.1",
     "popper.js": "^1.16.0",
+    "react": "^16.11.0",
     "react-bootstrap": "^1.0.0-beta.14",
+    "react-dom": "^16.11.0",
+    "styled-components": "^4.4.1",
     "tether": "^1.4.7"
   },
   "devDependencies": {
-    "@babel/core": "^7.6.4",
+    "@babel/core": "^7.7.2",
     "@babel/preset-env": "^7.6.3",
+    "@babel/preset-react": "^7.7.0",
     "@babel/register": "^7.6.2",
     "autoprefixer": "^9.7.1",
     "browser-sync": "^2.26.7",
+    "cross-env": "^6.0.3",
     "cssnano": "^4.1.10",
     "del": "^5.1.0",
     "gulp": "^4.0.2",
-    "gulp-babel": "^8.0.0",
+    "gulp-babel": "^8.0.0-beta.2",
+    "gulp-clean-css": "^4.2.0",
     "gulp-concat": "^2.6.1",
+    "gulp-cond": "^1.0.0",
     "gulp-imagemin": "^6.1.1",
     "gulp-postcss": "^8.0.0",
     "gulp-sass": "^4.0.2",
-    "gulp-sourcemaps": "^2.6.5",
-    "gulp-uglify": "^3.0.2"
+    "gulp-uglify": "^3.0.2",
+    "node-sass": "^4.13.0"
   }
 }

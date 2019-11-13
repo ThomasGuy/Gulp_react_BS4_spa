@@ -9,17 +9,18 @@ h6,
   font-family: "Poiret One", cursive;
 }
 body {
+  padding-top: $fixed-top-offset;
   font-family: "Lato", cursive;
 }
-.myphoto-section {
+.mysite-section {
   min-height: 500px;
 }
-.bg-myphoto-dark {
+.bg-mysite-dark {
   background-color: $bg-dark;
-  color: white;
+  color: $bg-lite;
 }
-.bg-myphoto-light {
-  background-color: white;
+.bg-mysite-light {
+  background-color: $bg-lite;
   color: $bg-dark;
 }
 
