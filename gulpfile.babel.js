@@ -27,7 +27,7 @@ const clean = () => del(["dist/**/*", "build/**/*"]);
 
 const path = {
   scss: {
-    src: "src/static/styless/**/*.scss",
+    src: "src/static/styles/**/*.scss",
     dest: `${buildDir}/css`
   },
   js: {
