@@ -1,4 +1,6 @@
+/* eslint-disable no-unused-vars */
 import { src, dest, watch, series, parallel } from "gulp";
+import sourcemaps from "gulp-sourcemaps";
 import babel from "gulp-babel";
 import sass from "gulp-sass";
 import concat from "gulp-concat";
@@ -14,6 +16,12 @@ import cleanCSS from "gulp-clean-css";
 
 sass.compiler = require("node-sass");
 
+const source = require("vinyl-source-stream");
+const buffer = require("vinyl-buffer");
+const log = require("gulplog");
+const watchify = require("watchify");
+const { assign } = require("lodash");
+
 const PROD = process.env.NODE_ENV === "production";
 const baseDir = PROD ? "build" : "dist";
 const server = browserSync.create();
@@ -22,16 +30,15 @@ const clean = () => del(["dist/**/*", "build/**/*"]);
 const path = {
   scss: {
     src: "src/static/styless/**/*.scss",
-    dest: `${baseDir}/css`,
-    vendor: `${baseDir}/vendor/css`
+    dest: `${baseDir}/css`
+    // vendor: `${baseDir}/vendor/css`
   },
-  // css: "src/static/styles/css",
   js: {
     src: "src/static/js/**/*.*",
     dest: `${baseDir}/js`,
     vendor: `${baseDir}/vendor/js`
   },
-  html: "./*.html",
+  html: "src/*.html",
   img: {
     src: "src/static/img/**/*",
     dest: `${baseDir}/img`
@@ -60,26 +67,15 @@ function serve(done) {
   done();
 }
 
-// move vendor (bootsrap) css
-// function moveScss() {
-//   return src(["node_modules/font-awesome/scss/font-awesome.scss"])
-//     .pipe(sass())
-//     .pipe(cond(PROD, postcss([autoprefixer(), cssnano()]))) // PostCSS plugins
-//     .pipe(dest(path.scss.vendor));
-// }
-
 // Compile sass into CSS
 function sassTask() {
-  return (
-    src(path.scss.src, { sourcemaps: !PROD })
-      // .pipe(cond(!PROD, sourcemaps.init()))
-      .pipe(sass().on("error", sass.logError))
-      .pipe(cleanCSS())
-      .pipe(cond(PROD, postcss([autoprefixer(), cssnano()])))
-      // .pipe(cond(!PROD, sourcemaps.write())) // PostCSS plugins
-      .pipe(dest(path.scss.dest))
-  );
-  // .pipe(browserSync.reload({ stream: true }));
+  return src(path.scss.src)
+    .pipe(cond(!PROD, sourcemaps.init({ loadMaps: true })))
+    .pipe(sass().on("error", sass.logError))
+    .pipe(cleanCSS())
+    .pipe(cond(PROD, postcss([autoprefixer(), cssnano()])))
+    .pipe(cond(!PROD, sourcemaps.write(".")))
+    .pipe(dest(path.scss.dest));
 }
 
 // move vendor js files
@@ -94,21 +90,13 @@ function moveJs() {
 
 // JS task: concatenates and uglifies JS files to script.js
 function jsTask() {
-  return (
-    src(
-      [
-        path.js.src
-        // ,'!' + 'includes/js/jquery.min.js', // to exclude any specific files
-      ],
-      { sourcemaps: !PROD }
-    )
-      // .pipe(cond(!PROD, sourcemaps.init()))
-      .pipe(babel())
-      .pipe(cond(PROD, uglify()))
-      .pipe(cond(PROD, concat("main.min.js"), concat("main.js")))
-      // .pipe(cond(!PROD, sourcemaps.write()))
-      .pipe(dest(path.js.dest))
-  );
+  return src(path.js.src)
+    .pipe(cond(!PROD, sourcemaps.init({ loadMaps: true })))
+    .pipe(babel())
+    .pipe(cond(PROD, uglify()))
+    .pipe(cond(PROD, concat("main.min.js"), concat("main.js")))
+    .pipe(cond(!PROD, sourcemaps.write(".")))
+    .pipe(dest(path.js.dest));
 }
 
 function moveImg() {
@@ -129,13 +117,6 @@ function mvFontAwesome() {
     dest(path.fonts.dest)
   );
 }
-// Cachebust
-// let cbString = new Date().getTime();
-// function cacheBustTask() {
-//   return src(["index.html"])
-//     .pipe(replace(/cb=\d+/g, `cb=${cbString}`))
-//     .pipe(dest("."));
-// }
 
 const watchall = () =>
   watch(
