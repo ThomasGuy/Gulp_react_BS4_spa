@@ -1,12 +1,9 @@
 {
-  "presets": [
-    ["@babel/env", {
-      "targets": {
-        "node": "current"
-      }
-    }],
+  "presets":
+    ["@babel/preset-env",
     "@babel/preset-react"
-  ],
+    ]
+  ,
   "plugins": [
     ["transform-imports", {
         "react-bootstrap": {
