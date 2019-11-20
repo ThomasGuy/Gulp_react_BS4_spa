@@ -1,11 +1,22 @@
-const navOffset = $(".top-navbar").height() + 16;
+window.onload = () => {
+  const navOffset = document.getElementById("top-navbar").offsetHeight;
+  const elems = document.querySelectorAll(".nav-link");
 
-$(".nav-link").click(function(event) {
-  const href = $(this).attr("href");
+  function getHref(event) {
+    event.preventDefault();
+    const href = event.target.hash;
+    if (`#${window.location.href.split("#")[1]}` !== href) {
+      window.location.hash = href;
+      window.scrollBy({
+        top: -navOffset, // could be negative value
+        left: 0,
+        behavior: "smooth"
+      });
+    }
+  }
 
-  event.preventDefault();
-  window.location.hash = href;
+  elems.forEach(el => el.addEventListener("click", getHref));
 
-  $(href)[0].scrollIntoView();
-  window.scrollBy(0, -navOffset);
-});
+  // We can set a scss variable like this ????
+  document.documentElement.style.setProperty("$fixed-top-offset", navOffset);
+};

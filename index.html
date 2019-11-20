@@ -41,9 +41,10 @@
     <div class="container-fluid bg-mysite-dark">
       <div class="container">
         <nav
-          class="navbar navbar-expand-md navbar-mysite my-logo fixed-top top-navbar"
+          class="navbar navbar-expand-md navbar-mysite my-logo fixed-top"
+          id="top-navbar"
         >
-          <a class="navbar-brand" href="#">
+          <a class="navbar-brand" href="#footer">
             <img src="dist/img/TWG_logo2.png" alt="my-logo" />
           </a>
           <button
@@ -68,79 +69,13 @@
               <li class="nav-item">
                 <a class="nav-link" href="#about"> About</a>
               </li>
-            </ul>
-            <ul class="navbar-nav pull-right">
-              <li class="nav-item"><a href="#" class="nav-link">Tom</a></li>
-              <li class="nav-item dropdown ">
-                <a
-                  href="#"
-                  class="nav-link dropdown-toggle"
-                  data-toggle="dropdown"
-                  role="button"
-                  aria-haspopup="true"
-                  aria-expanded="false"
-                >
-                  Profile <span class="caret"></span>
-                </a>
-                <div class="dropdown-menu dropdown-menu-right">
-                  <a
-                    class="dropdown-item"
-                    href="#"
-                    data-toggle="modal"
-                    data-target="#profile-modal"
-                    >Profile</a
-                  >
-                  <a
-                    class="dropdown-item"
-                    href="#"
-                    data-toggle="modal"
-                    data-target="#settings-modal"
-                    >Settings</a
-                  >
-                  <div class="dropdown-divider"></div>
-                  <a class="dropdown-item" href="#">Logout</a>
-                </div>
+              <li class="nav-item">
+                <a class="nav-link" href="#test"> Test</a>
               </li>
             </ul>
+            <ul class="navbar-nav pull-right" id="tom"></ul>
           </div>
         </nav>
-      </div>
-    </div>
-    <div class="modal" id="profile-modal" role="dialog">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button
-              type="button"
-              class="close"
-              data-dismiss="modal"
-              aria-label="Close"
-            >
-              <span aria-hidden="true">&times;</span>
-            </button>
-            <h4 class="modal-title" id="profile-modal-label"></h4>
-          </div>
-          <div class="modal-body">Here is your Profile</div>
-          <div class="modal-footer">Footer</div>
-        </div>
-      </div>
-    </div>
-    <div class="modal" id="settings-modal" role="dialog">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button
-              type="button"
-              class="close"
-              data-dismiss="modal"
-              aria-label="Close"
-            >
-              <span aria-hidden="true">&times;</span>
-            </button>
-            <h4 class="modal-title" id="settings-modal-label"></h4>
-          </div>
-          <div class="modal-body">Settings</div>
-        </div>
       </div>
     </div>
 
@@ -226,9 +161,9 @@
                 role="button"
                 data-slide="next"
               >
-                <span class="icon-next" aria-hidden="true"
-                  ><i class="fa fa-arrow-right"></i
-                ></span>
+                <span class="icon-next" aria-hidden="true">
+                  <i class="fa fa-arrow-right"></i>
+                </span>
               </a>
               <ol class="carousel-indicators">
                 <li
@@ -266,12 +201,10 @@
     </section>
 
     <!-- test react bootstrap -->
-    <section id="test">
-      <div id="root"></div>
-    </section>
+    <section id="test"></section>
 
     <!-- Footer -->
-    <footer class="bg-mysite-dark footer text">
+    <footer class="bg-mysite-dark footer text" id="footer">
       <div class="text-center">
         <p class="text-muted">&copy; MySite Inc.</p>
         <p class="text-muted">Terms &amp;Conditions</p>
@@ -290,11 +223,14 @@
     </footer>
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="dist/vendor/js/jquery.min.js"></script>
+    <!-- <script src="./node_modules/react/umd/react.development.js"></script>
+    <script src="./node_modules/react-dom/umd/react-dom.development.js"></script> -->
+    <script src="./node_modules/react-bootstrap/dist/react-bootstrap.js"></script>
+    <!-- <script src="dist/vendor/js/jquery.min.js"></script>
     <script src="dist/vendor/js/popper.min.js"></script>
     <script src="dist/vendor/js/tether.min.js"></script>
-    <script src="dist/vendor/js/bootstrap.min.js"></script>
-    <script src="dist/js/main.js"></script>
+    <script src="dist/vendor/js/bootstrap.min.js"></script> -->
     <script src="dist/js/bundle.js"></script>
+    <script src="dist/js/main.js"></script>
   </body>
 </html>
