@@ -1,5 +1,5 @@
 window.onload = () => {
-  const navOffset = document.getElementById("top-navbar").offsetHeight;
+  const navOffset = document.querySelector(".navbar").offsetHeight;
   const elems = document.querySelectorAll(".nav-link");
 
   function getHref(event) {

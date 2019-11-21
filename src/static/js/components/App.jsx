@@ -10,13 +10,7 @@ class App extends Component {
 
   render() {
     const { name, age } = this.state;
-    return (
-      <>
-        <div>
-          <MySection name={name} age={age} />
-        </div>
-      </>
-    );
+    return <MySection name={name} age={age} />;
   }
 }
 

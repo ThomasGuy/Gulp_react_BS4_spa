@@ -10,7 +10,7 @@ function ProfileModel() {
 
   return (
     <>
-      <Button variant="primary" onClick={handleShow}>
+      <Button variant="secondary" onClick={handleShow}>
         Profile
       </Button>
 

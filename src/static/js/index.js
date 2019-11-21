@@ -1,42 +1,24 @@
-/* eslint-disable import/no-named-as-default */
 import React from "react";
 import { render } from "react-dom";
-import MyModel from "./components/MyModel";
-import ProfileModel from "./components/ProfileModel";
+import MyCarousel from "./components/MyCarousel";
+import Navigation from "./components/Navigation";
 import App from "./components/App";
 
-function Models() {
+function Gallery() {
   return (
-    <>
-      <li className="nav-item">
-        <a href="#welcome" className="nav-link">
-          James
-        </a>
-      </li>
-      <li className="nav-item">
-        <div className="nav-link">
-          <MyModel />
+    <div className="container-fluid mysite-section bg-mysite-light">
+      <div className="container">
+        <div className="row">
+          <h3>Gallery</h3>
         </div>
-      </li>
-      <li className="nav-item">
-        <div className="nav-link">
-          <ProfileModel />
+        <div className="row">
+          <MyCarousel />
         </div>
-      </li>
-    </>
-  );
-}
-
-function Section() {
-  return (
-    <div>
-      <App />
+      </div>
     </div>
   );
 }
 
-const sectionElement = document.querySelector("#test");
-render(<Section />, sectionElement);
-
-const tomModel = document.querySelector("#tom");
-render(<Models />, tomModel);
+render(<Navigation />, document.querySelector("#topnav"));
+render(<Gallery />, document.querySelector("#gallery"));
+render(<App />, document.querySelector("#test"));

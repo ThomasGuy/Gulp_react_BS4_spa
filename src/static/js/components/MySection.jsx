@@ -3,9 +3,13 @@ import React from "react";
 
 const MySection = ({ name, age }) => (
   <div className="container-fluid mysite-section bg-mysite-dark" id="mySection">
-    <p>
-      Hello, {name}! your only {age} years old
-    </p>
+    <div className="container">
+      <div className="row justify-content-center">
+        <h4>
+          Hello, {name}! at {age} miles an hour...
+        </h4>
+      </div>
+    </div>
   </div>
 );
 
