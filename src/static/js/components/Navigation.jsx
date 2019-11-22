@@ -7,24 +7,28 @@ import ProfileModel from "./ProfileModel";
 
 function Navigation() {
   return (
-    <Navbar
-      collapseOnSelect
-      expand="md"
-      bg="dark"
-      variant="dark"
-      className="fixed-top"
-    >
+    <Navbar collapseOnSelect expand="md" fixed="top" className="navbar-mysite">
       <Navbar.Brand href="#">
         <img src="dist/img/TWG_logo2.png" alt="my-logo" height="50" />
       </Navbar.Brand>
       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
       <Navbar.Collapse id="responsive-navbar-nav">
         <Nav className="mr-auto">
-          <Nav.Link href="#welcome">Welcomw</Nav.Link>
-          <Nav.Link href="#gallery">Gallery</Nav.Link>
-          <Nav.Link href="#contact">Contact</Nav.Link>
-          <Nav.Link href="#about">About</Nav.Link>
-          <Nav.Link href="#test">Coins</Nav.Link>
+          <Nav.Item>
+            <Nav.Link href="#welcome">Welcome</Nav.Link>
+          </Nav.Item>
+          <Nav.Item>
+            <Nav.Link href="#gallery">Gallery</Nav.Link>
+          </Nav.Item>
+          <Nav.Item>
+            <Nav.Link href="#contact">Contact</Nav.Link>
+          </Nav.Item>
+          <Nav.Item>
+            <Nav.Link href="#about">About</Nav.Link>
+          </Nav.Item>
+          <Nav.Item>
+            <Nav.Link href="#test">Coins</Nav.Link>
+          </Nav.Item>
           <NavDropdown title="Menu" id="collasible-nav-dropdown">
             <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
             <NavDropdown.Item href="#action/3.2">

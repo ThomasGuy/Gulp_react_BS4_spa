@@ -6,7 +6,11 @@ const MySection = ({ name, age }) => (
     <div className="container">
       <div className="row justify-content-center">
         <h4>
-          Hello, {name}! at {age} miles an hour...
+          Hello, {name}! at {age}{" "}
+          <span>
+            <i className="fa fa-home" />
+          </span>{" "}
+          miles an hour...
         </h4>
       </div>
     </div>

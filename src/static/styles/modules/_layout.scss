@@ -1,3 +1,7 @@
+body {
+  padding-top: $fixed-top-offset;
+  font-family: "Lato", cursive;
+}
 h1,
 h2,
 h3,
@@ -7,10 +11,6 @@ h6,
 .nav,
 .navbar {
   font-family: "Poiret One", cursive;
-}
-body {
-  padding-top: $fixed-top-offset;
-  font-family: "Lato", cursive;
 }
 .mysite-section {
   min-height: 500px;

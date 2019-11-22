@@ -1,13 +1,16 @@
 // --------  navigation  -----------
-
-.my-logo img {
-  height: 50px;
-}
 .navbar-mysite {
   background-color: $bg-dark;
+  color: $bg-lite;
   border-color: black;
   border-radius: 0;
   margin-bottom: 0px;
+  max-width: 1120px;
+  margin-right: auto;
+  margin-left: auto;
+}
+.my-nav {
+  justify-content: center;
 }
 .navbar-mysite .nav-item > .nav-link {
   color: white;
@@ -17,7 +20,7 @@
   color: gray;
 }
 .navbar-mysite .nav-pills > li.active > a {
-  background-color: $bg-dark;
+  background-color: $lite-bg-dark;
   color: gray;
 }
 .navbar-mysite .dropdown-menu {

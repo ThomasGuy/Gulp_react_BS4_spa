@@ -33,8 +33,7 @@ const path = {
   js: {
     site: "src/static/js/site.js",
     src: "src/static/js/**/*.*",
-    dest: `${buildDir}/js`,
-    vendor: `${buildDir}/vendor/js`
+    dest: `${buildDir}/js`
   },
   html: "./*.html",
   img: {
@@ -76,16 +75,6 @@ function sassTask() {
     .pipe(dest(path.scss.dest));
 }
 
-// move vendor js files
-function moveJs() {
-  return src([
-    "node_modules/bootstrap/dist/js/bootstrap.min.js",
-    "node_modules/tether/dist/js/tether.min.js",
-    "node_modules/jquery/dist/jquery.min.js",
-    "node_modules/popper.js/dist/popper.min.js"
-  ]).pipe(dest(path.js.vendor));
-}
-
 // JS task: concatenates and uglifies JS files to script.js
 function jsTask() {
   return src(path.js.site)
@@ -98,7 +87,7 @@ function jsTask() {
 }
 
 function buildReact() {
-  return src("./src/static/js/index.js")
+  return src("./src/static/js/index.js", { sourcemaps: !PROD })
     .pipe(
       bro({
         basedir: "./src/static/js/",
@@ -110,7 +99,7 @@ function buildReact() {
     .pipe(rename("bundle.js"))
     .pipe(cond(PROD, buffer())) // Stream files
     .pipe(cond(PROD, uglify()))
-    .pipe(dest(path.js.dest));
+    .pipe(dest(path.js.dest, { sourcemaps: "." }));
 }
 
 function moveImg() {
@@ -140,7 +129,6 @@ const watchall = () =>
 
 module.exports.default = series(
   clean,
-  moveJs,
   mvFontAwesome,
   moveImg,
   parallel(sassTask, jsTask, buildReact),
